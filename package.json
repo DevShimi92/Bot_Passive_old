@@ -1,0 +1,25 @@
+{
+  "name": "bot_passive",
+  "version": "1.0.0",
+  "description": "Bot discord",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevShimi92/Bot_Passive.git"
+  },
+  "author": "DevShimi92",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevShimi92/Bot_Passive/issues"
+  },
+  "homepage": "https://github.com/DevShimi92/Bot_Passive#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.2.0",
+    "log4js": "^6.3.0",
+    "nconf": "^0.10.0"
+  }
+}

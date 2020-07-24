@@ -1,0 +1,27 @@
+{
+    "appenders": {
+      "everything": {
+        "type": "file",
+        "filename": "logs/all-the-logs.log"
+      },
+      "emergencies": {
+        "type": "file",
+        "filename": "logs/error.log"
+      },
+      "console": {
+        "type": "console",
+        "layout": {
+			"type": "pattern",
+			"pattern": "%[[%d{dd-MM-yyyy hh:mm:ss.SSS}] [%p] %c -%] %m"
+		}
+      },
+      "just-errors": {
+        "type": "logLevelFilter",
+        "level": "error",
+        "appender": "emergencies"
+      }
+    },
+    "categories": {
+      "default": { "appenders": [ "just-errors", "everything","console" ], "level": "trace" }
+    }
+  }
