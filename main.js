@@ -18,6 +18,7 @@ prefix = nconf.get('prefix');
   
 // On créer le client et le module de commande
 const client = new Client();
+Client.lockScan = false;
 
 //On liste tout les fichier de commande avec comme filtre que on veut que des ".js" 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -30,7 +31,7 @@ for (const file of commandFiles) {
 
 //Log tout type d'erreur de promesse 
 process.on('unhandledRejection', error => {
-	log.error('Rejet de promesse :', error);
+	log.error('Rejet de promesse :', error)
 });
 
 
