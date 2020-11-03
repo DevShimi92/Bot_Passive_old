@@ -95,13 +95,13 @@ function getFilesFromDir(dir) {
 
 		if (fs.statSync(curFile).isFile() && fileTypes.indexOf(path.extname(curFile)) != -1 ) {
 			
-			tabSong.push(curFile); ;
+			tabSong.push(curFile);
 			
 		} else if (fs.statSync(curFile).isDirectory()) {
 		 walkDir(curFile);
 		} 
 	  }
-	};
+	}
 	
 	walkDir(dir);
 	return tabSong;
