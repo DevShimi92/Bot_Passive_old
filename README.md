@@ -1,6 +1,9 @@
-# Bot_Passive
+<p align="center">
+<h1 align="center">Bot_Passive</h1>
+<h4 align="center">A bot discord that plays local music</h4>
+</p>
 
-> Bot passive is a Discord Music Bot built with discord.js 
+<p align="center">
 
 
 I write a bot discord for listen local music. I don't finish for now so don't hesitate to come back !
