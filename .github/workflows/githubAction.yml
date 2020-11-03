@@ -1,4 +1,4 @@
-name: Run eslint and deploy on device (no device rigth now)
+name: Eslint and Deploy
 
 on:
   push:
