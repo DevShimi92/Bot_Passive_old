@@ -1,5 +1,13 @@
 {
   "token": "",
   "prefix": "!",
-  "randomFolder": ""
+  "randomFolder": "",
+  "scanFolder": "",
+  "database" : {
+    "dialect" : "",
+    "host" : "",
+    "database_name" :"",
+    "username" :"",
+    "password" :"" 
+  }
 }
