@@ -1,6 +1,6 @@
 {
   "name": "bot_passive",
-  "version": "1.0.0",
+  "version": "0.2.5",
   "description": "Bot discord",
   "main": "main.js",
   "scripts": {
