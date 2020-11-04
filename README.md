@@ -4,8 +4,13 @@
 </p>
 
 <p align="center">
+<a href="https://github.com/DevShimi92/Bot_Passive/blob/master/LICENSE"><img alt="GitHub LICENCE" src="https://img.shields.io/github/license/DevShimi92/Bot_Passive"></a>
+<a href="https://github.com/DevShimi92/Bot_Passive/actions?query=workflow%3A%22Eslint+and+Deploy%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DevShimi92/Bot_Passive/Eslint%20and%20Deploy"></a>
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/package-json/v/DevShimi92/Bot_Passive"></p>
+ [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=metamug_mason&metric=alert_status)](https://sonarcloud.io/dashboard?id=DevShimi92_Bot_Passive) 
 
 
+<br>
 I write a bot discord for listen local music. I don't finish for now so don't hesitate to come back !
 
 Comment in french for now but a the end i translate all in english (with my bad english of course)
