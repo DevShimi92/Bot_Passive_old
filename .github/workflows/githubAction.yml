@@ -21,6 +21,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install module...
       run: npm ci
+    - name: Check with Eslint...
+      run: npm run lint
   
   Deploy:
     runs-on: ubuntu-latest
