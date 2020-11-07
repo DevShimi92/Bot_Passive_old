@@ -1,14 +1,13 @@
-const nconf = require("nconf");
-
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - SQL');
 
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(nconf.get('database:database_name'), nconf.get('database:username'), nconf.get('database:password'), {
-    host: nconf.get('database:host'),
-    dialect:  nconf.get('database:dialect'),
+const sequelize = new Sequelize(Client.config.database.database_name,Client.config.database.username, Client.config.database.password, {
+    host: Client.config.database.host,
+    dialect:Client.config.database.dialect,
     'define': {
       'underscored': true,
       'charset':'utf8mb4'

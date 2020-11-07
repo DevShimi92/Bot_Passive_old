@@ -1,11 +1,8 @@
 const Client = require('../struct/Client');
-const nconf = require("nconf");
 const fs = require("fs");
-
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - play');
-
 const { Sequelize , Op } = require("sequelize");
 const { models } = require('../db_sequelize');
 
@@ -57,7 +54,7 @@ module.exports = {
 	usage: `${Client.config.prefix}play [args][Nom de la musique ou de l'album]`,
 	async execute(message, args) {
 
-		const randomFolder  = nconf.get('randomFolder');
+		const randomFolder  = Client.config.randomFolder;
 
 		const { channel } = message.member.voice;
 		

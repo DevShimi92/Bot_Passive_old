@@ -1,7 +1,5 @@
 const Client = require('../struct/Client');
-const nconf = require("nconf");
 const fs = require("fs");
-
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - scan');
@@ -125,7 +123,7 @@ module.exports = {
 		
 			Client.lockScan = true;
 
-			const ScanFolder = nconf.get('scanFolder');
+			const ScanFolder = Client.config.scanFolder;
 
 			let modeForce = false ;
 

@@ -1,6 +1,6 @@
 {
   "name": "bot_passive",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Bot discord",
   "main": "main.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "jsmediatags": "^3.9.3",
     "log4js": "^6.3.0",
     "mysql2": "^2.2.5",
-    "nconf": "^0.10.0",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
