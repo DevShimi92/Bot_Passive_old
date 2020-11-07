@@ -150,8 +150,8 @@ module.exports = {
 					const commandFiles = fs.readdirSync(randomFolder).filter(file => file.endsWith('.mp3') || file.endsWith('.flac') || file.endsWith('.wav'));
 					const NumberPiste = Math.floor(Math.random() * (commandFiles.length - 1 )) ;
 					
-					song.title = commandFiles[NumberPiste],
-					song.path = randomFolder+commandFiles[NumberPiste]
+					song.title = commandFiles[NumberPiste];
+					song.path = randomFolder+commandFiles[NumberPiste];
 
 					if (serverQueue) {
 						serverQueue.songs.push(song);
