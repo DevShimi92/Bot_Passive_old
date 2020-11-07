@@ -5,7 +5,7 @@
 
 <p align="center">
 <a href="https://github.com/DevShimi92/Bot_Passive/blob/master/LICENSE"><img alt="GitHub LICENCE" src="https://img.shields.io/github/license/DevShimi92/Bot_Passive"></a>
-<a href="https://github.com/DevShimi92/Bot_Passive/actions?query=workflow%3A%22Eslint+and+Deploy%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DevShimi92/Bot_Passive/Eslint%20and%20Deploy"></a>
+<a href="https://github.com/DevShimi92/Bot_Passive/actions?query=workflow%3A%22Eslint+and+Deploy%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DevShimi92/Bot_Passive/Eslint"></a>
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/package-json/v/DevShimi92/Bot_Passive"></p>
 
 <br>
