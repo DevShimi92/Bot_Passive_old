@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - skip');
@@ -5,7 +6,7 @@ const log = log4js.getLogger('BOT - skip');
 module.exports = {
 	name: 'skip',
 	description: 'Passe la musique',
-	usage: `${prefix}skip`,
+	usage: `${Client.config.prefix}skip`,
 	execute(message) {
 		
 		const { channel } = message.member.voice;

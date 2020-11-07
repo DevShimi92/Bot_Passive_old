@@ -1,9 +1,10 @@
 const Client = require('./struct/Client');
 const fs = require("fs");
-const nconf = require("nconf");
 const log4js = require('log4js');
-const conf_file = './config/config.json';
 const conf_file_log = './config/log_config.json';
+
+// On importe les valeurs du fichier de config
+Client.config = require('./config/config.json');
 
 process.title = "BOT_PASSIVE";
 
@@ -11,11 +12,6 @@ process.title = "BOT_PASSIVE";
 log4js.configure(conf_file_log,{});
 const log = log4js.getLogger('BOT - Main');
 
-// On importe les valeurs du fichier de config
-nconf.file('config', conf_file);
-const token  = nconf.get('token');
-prefix = nconf.get('prefix');
-  
 // On créer le client et le module de commande
 const client = new Client();
 Client.lockScan = false;
@@ -35,7 +31,7 @@ process.on('unhandledRejection', error => {
 });
 
 
-client.login(token);
+client.login(Client.config.token);
 
 client.on('ready', () => {
   log.info(`Connecté en tant que ${client.user.tag} !`);
@@ -46,9 +42,9 @@ client.on('message',  message  => {
 
 	if(message.channel.type == 'dm' ) return log.trace('Message privée  de ' + message.channel.recipient.username + ' : ' + message.toString()); 
 
-	if (!message.content.startsWith(prefix) || message.author.bot) return; 
+	if (!message.content.startsWith(Client.config.prefix) || message.author.bot) return; 
 	
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(Client.config.prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
 	if (!client.commands.has(command)) return;

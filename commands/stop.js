@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - stop');
@@ -5,7 +6,7 @@ const log = log4js.getLogger('BOT - stop');
 module.exports = {
 	name: 'stop',
 	description: 'Arrête complétement la lecture de musique (Remise à 0 de la playlist)',
-	usage: `${prefix}stop`,
+	usage: `${Client.config.prefix}stop`,
 	execute(message)   {
 		
 		const { channel } = message.member.voice;

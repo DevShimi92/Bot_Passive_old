@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - leave');
@@ -6,7 +7,7 @@ const log = log4js.getLogger('BOT - leave');
 module.exports = {
 	name: 'leave',
 	description: 'Fait partir le bot',
-	usage: `${prefix}leave`,
+	usage: `${Client.config.prefix}leave`,
 	execute(message) {
 
 		const serverQueue = message.client.queue.get(message.guild.id);

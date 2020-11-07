@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - queue');
@@ -5,7 +6,7 @@ const log = log4js.getLogger('BOT - queue');
 module.exports = {
 	name: 'queue',
 	description: 'Affiche la playlist actuelle du bot',
-	usage: `${prefix}queue`,
+	usage: `${Client.config.prefix}queue`,
 	execute(message)    {
 		
 		const serverQueue = message.client.queue.get(message.guild.id);

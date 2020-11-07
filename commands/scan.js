@@ -1,6 +1,6 @@
+const Client = require('../struct/Client');
 const nconf = require("nconf");
 const fs = require("fs");
-const Client = require('../struct/Client');
 
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
@@ -30,15 +30,14 @@ async function addSongToDatabase(tabSong,idmax){
 						discNumber = tabSong[i].slice(pos+5, pos+6)
 
 					const songdb = { song_id : idmax,
-										name : tag.tags.title,
-							     numberTrack : tag.tags.track,
-								       album : tag.tags.album,
-								        disc : discNumber,
-							          artist : tag.tags.artist,
-									   genre : tag.tags.genre,
-								        year : tag.tags.year, 
-										path : tabSong[i]
-									}
+								name : tag.tags.title,
+								numberTrack : tag.tags.track,
+								album : tag.tags.album,
+								disc : discNumber,
+								artist : tag.tags.artist,
+								genre : tag.tags.genre,
+								year : tag.tags.year, 
+								path : tabSong[i] }
 
 					models.song.create(songdb);
 					
@@ -68,16 +67,15 @@ async function addSongToDatabase(tabSong,idmax){
 // Permet de récupérer les informations d'une musique (artiste, nom de l'album...)
 function getTags(url) {      
 	return new Promise((resolve, reject) => {
-		new jsmediatags.Reader(url)
-		  .read({
+		new jsmediatags.Reader(url).read({
 			onSuccess: (tag) => {                
-			  resolve(tag);
-			},
+				resolve(tag);
+				},
 			onError: (error) => {                
-			  reject(error);
-			}
-		  });
-	  });
+				reject(error);
+				}
+		});
+	});
   }
 
 //Récupere la liste de toutes les musiques disponible depuis le dossier indiqué (recherche dans les sous-dossiers aussi)
@@ -88,19 +86,19 @@ function getFilesFromDir(dir) {
 	let tabSong = [];
 
 	function walkDir(currentPath) {
-	  var files = fs.readdirSync(currentPath);
-	  for (var i in files) {
-		
-		var curFile = path.join(currentPath, files[i]);   
+	var files = fs.readdirSync(currentPath);
+		for (var i in files) {
+			
+			var curFile = path.join(currentPath, files[i]);   
 
-		if (fs.statSync(curFile).isFile() && fileTypes.indexOf(path.extname(curFile)) != -1 ) {
-			
-			tabSong.push(curFile);
-			
-		} else if (fs.statSync(curFile).isDirectory()) {
-		 walkDir(curFile);
-		} 
-	  }
+			if (fs.statSync(curFile).isFile() && fileTypes.indexOf(path.extname(curFile)) != -1 ) {
+				
+				tabSong.push(curFile);
+				
+			} else if (fs.statSync(curFile).isDirectory()) {
+			walkDir(curFile);
+			} 
+		}
 	}
 	
 	walkDir(dir);
@@ -113,7 +111,7 @@ function getFilesFromDir(dir) {
 module.exports = {
 	name: 'scan',
 	description: "Actulise la base de donnée (utiliser -forcebdd ou -fbdd en tant qu'argument pour une réécriture de la base)",
-	usage: `${prefix}scan [args]`,
+	usage: `${Client.config.prefix}scan [args]`,
 	async execute(message, args) {
 
 		if(Client.lockScan == true)
@@ -153,7 +151,7 @@ module.exports = {
 								log.warn("Demande d'ajout de musique en mode force : Confirmation confirmé ! ")
 
 								modeForce = true ;
-								 
+
 							}
 							else
 							{
@@ -161,8 +159,7 @@ module.exports = {
 								Client.lockScan = false;
 								return message.reply('Scan annulé !'); 
 							}
-								  
-								
+							
 					}).catch(() => {
 							log.warn("Demande d'ajout de musique en mode force : Pas de réponse ! Scan annulé !")
 							Client.lockScan = false;

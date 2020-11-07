@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - pause');
@@ -5,7 +6,7 @@ const log = log4js.getLogger('BOT - pause');
 module.exports = {
 	name: 'pause',
 	description: 'Met en pause la musique',
-	usage: `${prefix}pause`,
+	usage: `${Client.config.prefix}pause`,
 	execute(message)  {
 
 		const serverQueue = message.client.queue.get(message.guild.id);

@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const nconf = require("nconf");
 const fs = require("fs");
 
@@ -53,7 +54,7 @@ function addSong(message,queueConstruct,dataSong,hidemsg = false)
 module.exports = {
 	name: 'play',
 	description: `\n       Sans argument, lancer la commande avec le nom de la musqiue à jouer \n       -random(-r) : Lance une musique random (depuis un dossier prédéfini)\n         => - globale(-g) : lancer avec -random permet de faire une séléction sur toute les musique disponible dans la base\n       - album(-al) : Lance un album\n       -id : Lance une musique via son id\n `,         
-	usage: `${prefix}play [args][Nom de la musique ou de l'album]`,
+	usage: `${Client.config.prefix}play [args][Nom de la musique ou de l'album]`,
 	async execute(message, args) {
 
 		const randomFolder  = nconf.get('randomFolder');
@@ -143,6 +144,11 @@ module.exports = {
 				}
 				else if ( args[1] == null)
 				{
+					const song = {
+						title: '',
+						path: ''
+					};
+					
 					// On dresse une liste des musiques dans le dossier puis on en prend un au hasard
 					const commandFiles = fs.readdirSync(randomFolder).filter(file => file.endsWith('.mp3') || file.endsWith('.flac') || file.endsWith('.wav'));
 					const NumberPiste = Math.floor(Math.random() * (commandFiles.length - 1 )) ;
@@ -198,12 +204,12 @@ module.exports = {
 								{
 									queueConstruct.songs.push(songLoop);
 								}
-					  }
-					  
-					  if (serverQueue) 
-							{
-								return message.channel.send('Une nouvelle sélection de musique aléatoire a été ajouté');
-							}
+					}
+  
+					if (serverQueue) 
+						{
+							return message.channel.send('Une nouvelle sélection de musique aléatoire a été ajouté');
+						}
 				}
 
 			}
@@ -237,7 +243,7 @@ module.exports = {
 						log.info("Plusierus résultats trouvé par rapport à la demande de l'utilisateur");
 						message.channel.send(`J'ai trouvé plusieurs résultat :`)
 
-						result = listAlbumByName.map((x,index) => index+1 +' - '+ x.album).join("\n") ;
+						let result = listAlbumByName.map((x,index) => index+1 +' - '+ x.album).join("\n") ;
 
 						log.trace('\n' + result );
 						message.channel.send("```\nRésultats : \n" + result + "\n```");
@@ -264,9 +270,7 @@ module.exports = {
 								{
 									log.info("Valeur non numérique ! Je n'ajoute rien");
 									return message.channel.send("Ce n'est pas un chiffre ! Je n'ajoute rien.");
-								}
-											
-												  
+								} 
 												
 							}).catch(() => {
 								log.info("30 seconde écoulé, ajout de musique annulé !");
@@ -371,14 +375,12 @@ module.exports = {
 					attributes: ['name','path'],
 					raw: true,
 					where: {
-						song_id: args[1]
-						
-					},
-
+						song_id: args[1]	
+						},
 					}).then(function(data) {
 							return data;
 					});
-				 
+
 				try {
 
 					if(listSongbyid.length > 0)
@@ -419,7 +421,7 @@ module.exports = {
 								log.info("Plusierus résultats trouvé par rapport à la demande de l'utilisateur");
 								message.channel.send(`J'ai trouvé plusieurs résultat :`)
 
-								result = listSongByName.map((x,index) => index+1 +' - '+ x.name).join("\n") ;
+								let result = listSongByName.map((x,index) => index+1 +' - '+ x.name).join("\n") ;
 
 								log.trace('\n' + result );
 								message.channel.send("```\nRésultats : \n" + result + "\n```");
@@ -448,10 +450,8 @@ module.exports = {
 										{
 											log.info("Valeur non numérique ! Je n'ajoute rien");
 											return message.channel.send("Ce n'est pas un chiffre ! Je n'ajoute rien.");
-										}
-											
-												  
-												
+										} 
+
 									}).catch(() => {
 										log.info("30 seconde écoulé, ajout de musique annulé !");
 										return message.channel.send("Pas de réponse dans le temps inparti, je n'ajoute rien. ");

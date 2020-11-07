@@ -1,3 +1,4 @@
+const Client = require('../struct/Client');
 const log4js = require('log4js');
 log4js.configure('./config/log_config.json',{});
 const log = log4js.getLogger('BOT - volume');
@@ -5,7 +6,7 @@ const log = log4js.getLogger('BOT - volume');
 module.exports = {
 	name: 'volume',
 	description: 'Change le volume de la playlist actuelle',
-	usage: `${prefix}volume [Niveau du volume]`,
+	usage: `${Client.config.prefix}volume [Niveau du volume]`,
 	execute(message, args) {
 
 		const { channel } = message.member.voice;

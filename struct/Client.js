@@ -1,7 +1,7 @@
 const { Client, Collection } = require('discord.js');
 
 module.exports = class extends Client {
-	constructor(lockScan) {
+	constructor(lockScan,config) {
 		super({
 			disableMentions: 'everyone'
 		});
@@ -9,6 +9,8 @@ module.exports = class extends Client {
 		this.commands = new Collection();
 
 		this.queue = new Map();
+
+		this.config = config;
 
 		this.lockScan = lockScan;
 
