@@ -21,7 +21,7 @@
     "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
     "jsmediatags": "^3.9.3",
-    "log4js": "^6.3.0",
+    "log4js": "^6.4.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
