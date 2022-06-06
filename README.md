@@ -1,3 +1,5 @@
+# Deprecated now. Check new Bot_Passive [here](https://github.com/DevShimi92/bot_passive_ts).
+
 <p align="center">
 <h1 align="center">Bot_Passive</h1>
 <h4 align="center">A bot discord that plays local music</h4>
