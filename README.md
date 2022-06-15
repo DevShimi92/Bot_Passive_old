@@ -1,4 +1,4 @@
-# Deprecated now. Check new Bot_Passive [here](https://github.com/DevShimi92/bot_passive_ts).
+# Deprecated now. Check new Bot_Passive [here](https://github.com/DevShimi92/bot_passive).
 
 <p align="center">
 <h1 align="center">Bot_Passive</h1>
@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/DevShimi92/Bot_Passive/blob/master/LICENSE"><img alt="GitHub LICENCE" src="https://img.shields.io/github/license/DevShimi92/Bot_Passive"></a>
-<a href="https://github.com/DevShimi92/Bot_Passive/actions?query=workflow%3A%22Eslint+and+Deploy%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DevShimi92/Bot_Passive/Eslint"></a>
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/package-json/v/DevShimi92/Bot_Passive"></p>
+<a href="https://github.com/DevShimi92/Bot_Passive_old/blob/master/LICENSE"><img alt="GitHub LICENCE" src="https://img.shields.io/github/license/DevShimi92/Bot_Passive_old"></a>
+<a href="https://github.com/DevShimi92/Bot_Passive/actions?query=workflow%3A%22Eslint+and+Deploy%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/DevShimi92/Bot_Passive_old/Eslint"></a>
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/package-json/v/DevShimi92/Bot_Passive_old"></p>
 
 <br>
 I write a bot discord for listen local music. I don't finish for now so don't hesitate to come back !
